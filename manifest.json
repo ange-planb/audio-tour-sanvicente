@@ -1,26 +1,22 @@
 {
-    "name": "Audio Tour San Vicente",
-    "short_name": "Audio Tour",
-    "description": "Recorrido autónomo por la Plaza de Armas de San Vicente de Tagua Tagua",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#00A896",
-    "theme_color": "#00A896",
-    "orientation": "portrait",
-    "scope": "/",
-    "lang": "es",
-    "icons": [
-        {
-            "src": "icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
-    ]
+  "name": "Audio Tour San Vicente",
+  "short_name": "Audio Tour",
+  "description": "Recorrido autónomo por la Plaza de Armas de San Vicente de Tagua Tagua.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F4F4F4",
+  "theme_color": "#00A896",
+  "icons": [
+    {
+      "src": "logos PNG/icono audio tour.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logos PNG/icono audio tour.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
