@@ -331,36 +331,54 @@ document.getElementById('btn-directions').addEventListener('click', () => {
 
 // Geolocalización
 btnLocate.addEventListener('click', () => {
-    if ("geolocation" in navigator) {
-        btnLocate.style.color = "#ccc"; // Loading 
-        
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const lat = position.coords.latitude;
-                const lng = position.coords.longitude;
-                userPosData = { lat, lng };
-                updateUserMarker(lat, lng, true);
-                btnLocate.style.color = "var(--primary-color)";
-                
-                if (!watchId) {
-                    watchId = navigator.geolocation.watchPosition(
-                        (pos) => {
-                            userPosData = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-                            updateUserMarker(pos.coords.latitude, pos.coords.longitude, false);
-                        },
-                        (err) => console.log(err),
-                        { enableHighAccuracy: true, maximumAge: 10000 }
-                    );
-                }
-            },
-            (error) => {
-                console.error("GPS Error", error);
-                btnLocate.style.color = "red";
-                alert("Activa tu GPS para usar esta función.");
-            },
-            { enableHighAccuracy: true, timeout: 5000 }
-        );
+    if (!("geolocation" in navigator)) {
+        alert(currentLang === 'es' ? "Tu navegador no soporta geolocalización." : "Your browser doesn't support geolocation.");
+        return;
     }
+    
+    btnLocate.style.color = "#ccc"; // Loading 
+    
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+    };
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            userPosData = { lat, lng };
+            updateUserMarker(lat, lng, true); // Centrar inmediatamente al usuario
+            btnLocate.style.color = "var(--primary-color)";
+            
+            // Iniciar seguimiento constante
+            if (!watchId) {
+                watchId = navigator.geolocation.watchPosition(
+                    (pos) => {
+                        userPosData = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                        updateUserMarker(pos.coords.latitude, pos.coords.longitude, false);
+                    },
+                    (err) => console.log("Watch error:", err),
+                    options
+                );
+            }
+        },
+        (error) => {
+            console.error("GPS Error:", error);
+            btnLocate.style.color = "red";
+            let msgBox = "Error al obtener ubicación. ";
+            if (error.code === error.PERMISSION_DENIED) {
+                msgBox = "Permiso de GPS denegado. Por favor, aprueba los permisos de ubicación en tu navegador para continuar.";
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+                msgBox = "Información de ubicación no disponible en tu dispositivo.";
+            } else if (error.code === error.TIMEOUT) {
+                msgBox = "La petición del GPS ha tardado mucho. Trata de moverte a una zona descubierta o verificar tu conexión.";
+            }
+            alert(msgBox);
+        },
+        options
+    );
 });
 
 function updateUserMarker(lat, lng, centerMap) {
