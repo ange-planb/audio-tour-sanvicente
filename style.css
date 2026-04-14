@@ -37,37 +37,44 @@ body {
 .app-header {
     position: absolute;
     top: 15px;
-    left: 0;
-    right: 0;
+    left: 15px;
+    right: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
     z-index: 1000;
-    pointer-events: none; /* Dejar pasar clicks al mapa */
+    pointer-events: none; /* Dejar pasar clicks al mapa en zonas vacías */
 }
 
-.header-content {
-    pointer-events: auto;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 6px 12px 6px 6px;
-}
-
+/* Base de píldora de fondo transparente desenfocado */
 .glass-pill {
+    pointer-events: auto;
     background: var(--bg-glass);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: var(--radius-pill);
     box-shadow: var(--shadow-soft);
     border: 1px solid rgba(255,255,255,0.4);
+    padding: 6px;
 }
 
-.logo-small {
-    height: 38px;
-    width: 38px;
-    object-fit: cover;
-    border-radius: 50%;
-    background: white;
+.logo-container {
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-full {
+    height: 45px;
+    max-width: 140px;
+    object-fit: contain;
+    display: block;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
 }
 
 .lang-pill {
