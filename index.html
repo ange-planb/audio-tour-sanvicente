@@ -29,15 +29,15 @@
 </head>
 <body>
 
-    <!-- Header / Nav (Minimalista) -->
+    <!-- Header / Nav -->
     <header class="app-header">
-        <!-- Logo a la izquierda (rectangular, visión completa) -->
-        <div class="logo-container glass-pill">
-            <img src="logos%20PNG/logo%20audio%20tour.png" alt="Logo Audio Tour" class="logo-full">
+        <!-- Logo aislado en una esquina superior. Tamaño ultra estricto para móvil. -->
+        <div class="logo-box">
+            <img src="logos%20PNG/logo%20audio%20tour.png" alt="Logo Audio Tour" class="logo-fixed-mobile">
         </div>
         
-        <!-- Idiomas a la derecha -->
-        <div class="header-content glass-pill">
+        <!-- Píldora Idiomas a la derecha -->
+        <div class="header-lang-box glass-pill shadow">
             <div class="lang-pill">
                 <button id="btn-es" class="lang-btn active">ES</button>
                 <div class="lang-divider"></div>
@@ -54,44 +54,65 @@
         <i class="fa-solid fa-location-arrow"></i>
     </button>
 
-    <!-- Audio Player Minimalist Card (Hidden by default) -->
-    <div id="audio-panel" class="audio-card fade-out">
+    <!-- SmartGuide Minimalist Tourist Card -->
+    <div id="audio-panel" class="tourist-card fade-out shadow">
         <button id="btn-close-panel" class="btn-close-card"><i class="fa-solid fa-xmark"></i></button>
         
+        <!-- Pestañas de Navegación -->
+        <div class="card-tabs">
+            <button class="tab-btn active" id="tab-audio-btn">
+                <i class="fa-solid fa-headphones"></i> <span id="label-audio-tab">Audio</span>
+            </button>
+            <button class="tab-btn" id="tab-tips-btn">
+                <i class="fa-solid fa-lightbulb"></i> <span id="label-tips-tab">Lugares & Tips</span>
+            </button>
+        </div>
+
         <div class="card-content">
             <div class="card-header">
-                <div>
-                    <h2 id="point-title" class="title">Bienvenida</h2>
-                    <p id="point-desc" class="subtitle">Descubre San Vicente de Tagua Tagua</p>
-                </div>
+                <h2 id="point-title" class="title">Bienvenida</h2>
+                <p id="point-desc" class="subtitle">Descubre San Vicente de Tagua Tagua</p>
             </div>
             
-            <div class="audio-controls-minimal">
-                <audio id="audio-player" style="display:none;"></audio>
-                
-                <button id="btn-play-pause" class="play-btn-main shadow">
-                    <i class="fa-solid fa-play"></i>
-                </button>
-                
-                <div class="progress-wrapper">
-                    <div class="time-texts">
-                        <span id="current-time">0:00</span>
-                        <span id="duration-time">0:00</span>
+            <!-- CONTENIDO PESTAÑA: AUDIO -->
+            <div id="view-audio" class="tab-view active-view">
+                <div class="audio-controls-minimal">
+                    <audio id="audio-player" style="display:none;"></audio>
+                    
+                    <button id="btn-play-pause" class="play-btn-main shadow">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    
+                    <div class="progress-wrapper">
+                        <div class="time-texts">
+                            <span id="current-time">0:00</span>
+                            <span id="duration-time">0:00</span>
+                        </div>
+                        <div class="progress-bar-bg" id="progress-container">
+                            <div class="progress-bar-fill" id="progress-bar"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar-bg" id="progress-container">
-                        <div class="progress-bar-fill" id="progress-bar"></div>
-                    </div>
+                </div>
+
+                <div class="card-footer-actions">
+                    <button id="btn-directions" class="btn-action">
+                        <i class="fa-solid fa-route"></i> <span id="label-directions">Cómo llegar</span>
+                    </button>
+                    <a href="https://www.camaraturismosanvicente.cl/audio-tour" target="_blank" class="btn-action sponsor-link">
+                        <i class="fa-solid fa-circle-info"></i> <span id="label-info">Cámara Turismo</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="card-footer-actions">
-                <button id="btn-directions" class="btn-action">
-                    <i class="fa-solid fa-route"></i> <span id="label-directions">Cómo llegar</span>
-                </button>
-                <a href="https://www.camaraturismosanvicente.cl/audio-tour" target="_blank" class="btn-action sponsor-link">
-                    <i class="fa-solid fa-circle-info"></i> <span id="label-info">Más Info</span>
-                </a>
+            <!-- CONTENIDO PESTAÑA: TIPS / LUGARES -->
+            <div id="view-tips" class="tab-view hidden-view">
+                <div class="tips-container">
+                    <ul id="tips-list" class="tips-list">
+                        <!-- Llenado dinámico vía JS -->
+                    </ul>
+                </div>
             </div>
+            
         </div>
     </div>
 
@@ -105,10 +126,8 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').then(reg => {
-                    console.log('Service Worker registrado!', reg.scope);
-                }).catch(err => {
-                    console.error('Service Worker Falló', err);
+                navigator.serviceWorker.register('./sw.js').catch(err => {
+                    console.error('SW Falló', err);
                 });
             });
         }
