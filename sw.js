@@ -28,8 +28,8 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     const requestUrl = new URL(event.request.url);
 
-    // Si es un audio (MP3) o imagen de Leaflet (Map Tiles), usar Cache First, luego red
-    if (requestUrl.pathname.endsWith('.mp3') || requestUrl.hostname.includes('basemaps.cartocdn.com')) {
+    // Si es un audio (MP3), imagen pesada o imagen de Leaflet (Map Tiles), usar Cache First
+    if (requestUrl.pathname.endsWith('.mp3') || requestUrl.pathname.match(/\.(jpg|jpeg|png)$/i) || requestUrl.hostname.includes('cartocdn.com')) {
         event.respondWith(
             caches.match(event.request).then(response => {
                 if (response) return response;

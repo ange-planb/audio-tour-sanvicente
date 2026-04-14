@@ -1,114 +1,92 @@
-// Coordenadas KML, audios y *NUEVOS* Tips Turísticos
+// Coordenadas KML, audios, Imágenes reales e Historia
 const tourPoints = [
     {
         id: 0,
-        lat: -34.43930, 
-        lng: -71.07700,
-        es: { title: "Intro Audiotour", desc: "Bienvenida a la Plaza de San Vicente", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/AUDIO%20TOUR%20PLAZA%20DE%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Intro Audiotour", desc: "Welcome to San Vicente Square", audio: "audiotur%20en%20ingles%20MP3/0.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-camera", esTitle: "Fotografía Inicial", esDesc: "Toma una foto de todo el paisaje desde este punto central.", enTitle: "First Photo", enDesc: "Take a wide shot from this central point." }
-        ]
+        lat: -34.43930, lng: -71.07700,
+        image: "referencias/bienvenida, hito0.png",
+        es: { title: "Intro Audiotour", desc: "Bienvenidos a la Plaza de San Vicente de Tagua Tagua.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/AUDIO%20TOUR%20PLAZA%20DE%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Intro Audiotour", desc: "Welcome to San Vicente de Tagua Tagua Square.", audio: "audiotur%20en%20ingles%20MP3/0.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-camera", esTitle: "Fotografía Inicial", esDesc: "Toma una foto panorámica para capturar la esencia natural.", enTitle: "First Photo", enDesc: "Take a panoramic shot here." }]
     },
     {
         id: 1,
-        lat: -34.43897,
-        lng: -71.07652,
-        es: { title: "Carmen Gallegos", desc: "Fundadora", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/1.%20CARMEN%20GALLEGOS.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Carmen Gallegos", desc: "Founder", audio: "audiotur%20en%20ingles%20MP3/1.%20CARMEN%20GALLEGOS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-mug-hot", esTitle: "Café Cercano", esDesc: "A media cuadra puedes encontrar excelentes cafeterías tradicionales.", enTitle: "Nearby Coffee", enDesc: "Half a block away you can find traditional coffee shops." }
-        ]
+        lat: -34.43897, lng: -71.07652,
+        image: "referencias/carmen gallegos.jpeg",
+        es: { title: "Carmen Gallegos", desc: "María del Carmen Gallegos del Campo donó sus tierras inmemoriales el 6 de octubre de 1845 para fundar el pueblo.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/1.%20CARMEN%20GALLEGOS.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Carmen Gallegos", desc: "María del Carmen Gallegos donated her lands on Oct 6, 1845, establishing the town's foundation.", audio: "audiotur%20en%20ingles%20MP3/1.%20CARMEN%20GALLEGOS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-mug-hot", esTitle: "Café Cercano", esDesc: "A media cuadra hay excelentes cafeterías tradicionales.", enTitle: "Nearby Coffee", enDesc: "There are traditional coffee shops nearby." }]
     },
     {
         id: 2,
-        lat: -34.43970,
-        lng: -71.07665,
-        es: { title: "Reloj", desc: "Historia y Tradición", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/2.%20RELOJ.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Clock", desc: "History & Tradition", audio: "audiotur%20en%20ingles%20MP3/2.%20CLOCK.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-clock", esTitle: "Momento Ideal", esDesc: "Espera a las campanas del cambio de hora para vivir la experiencia.", enTitle: "Perfect Timing", enDesc: "Wait for the hour change bells to enhance the experience." }
-        ]
+        lat: -34.43970, lng: -71.07665,
+        image: "referencias/reloj.jpeg",
+        es: { title: "Reloj Árabe", desc: "Torre de arquitectura árabe regalada en el centenario (1945). Originalmente sonaba un carillón musical cada hora con piezas maestras de metal.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/2.%20RELOJ.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Arab Clock", desc: "Arab architecture tower gifted during the centennial (1945). It originally played musical carillons hourly.", audio: "audiotur%20en%20ingles%20MP3/2.%20CLOCK.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-clock", esTitle: "Cruce de Horas", esDesc: "Observa sus 4 caras de igual diseño enfocadas en la calle.", enTitle: "Four Faces", enDesc: "Observe its 4 symmetrical faces." }]
     },
     {
         id: 3,
-        lat: -34.43958,
-        lng: -71.07663,
-        es: { title: "Galgos", desc: "Esculturas Emblemáticas", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/3.%20GALGOS.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Greyhounds", desc: "Emblematic Sculptures", audio: "audiotur%20en%20ingles%20MP3/3.%20GREYHOUNDS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-             { icon: "fa-utensils", esTitle: "Gastronomía", esDesc: "A pasos de aquí hay oferta de restaurantes y comida al paso.", enTitle: "Gastronomy", enDesc: "Steps away there is a wide offer of local food and fine dining." }
-        ]
+        lat: -34.43958, lng: -71.07663,
+        image: "referencias/galgo.jpg",
+        es: { title: "Galgos", desc: "Esculturas representativas de la época, símbolo del arraigo de tradiciones.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/3.%20GALGOS.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Greyhounds", desc: "Representative sculptures symbolizing anchored local traditions.", audio: "audiotur%20en%20ingles%20MP3/3.%20GREYHOUNDS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-utensils", esTitle: "Gastronomía", esDesc: "A pasos de aquí hay oferta de restaurantes y comida típica.", enTitle: "Gastronomy", enDesc: "Steps away there is a wide offer of local food." }]
     },
     {
         id: 4,
-        lat: -34.43949,
-        lng: -71.07687,
-        es: { title: "Odeón", desc: "Música y Encuentro", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/4.%20ODE%C3%93N.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Odeon", desc: "Music & Gatherings", audio: "audiotur%20en%20ingles%20MP3/4.%20ODE%C3%93N.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-             { icon: "fa-music", esTitle: "Música en Vivo", esDesc: "Revisa la cartelera local, a veces hay presentaciones en este mismo odeón.", enTitle: "Live Music", enDesc: "Check the local agenda, sometimes bands play directly here." }
-        ]
+        lat: -34.43949, lng: -71.07687,
+        image: "referencias/odeon.jpg",
+        es: { title: "Odeón", desc: "Punto de confluencia musical clásico que históricamente reunió a bandas locales de campo.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/4.%20ODE%C3%93N.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Odeon", desc: "Classic musical stage connecting local bands with town citizens.", audio: "audiotur%20en%20ingles%20MP3/4.%20ODE%C3%93N.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-music", esTitle: "Música en Vivo", esDesc: "En días festivos suelen tocar orquestas aquí.", enTitle: "Live Music", enDesc: "During holidays, bands tend to play here." }]
     },
     {
         id: 5,
-        lat: -34.43925,
-        lng: -71.07678,
-        es: { title: "Pileta", desc: "El corazón de la plaza", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/5.%20PILETA%20Y%20%C3%81RBOLES.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Fountain", desc: "Heart of the square", audio: "audiotur%20en%20ingles%20MP3/5.%20FOUNTAIN%20AND%20TREES.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-leaf", esTitle: "Descanso", esDesc: "Siéntate en las bancas bajo las palmeras, es el lugar más fresco.", enTitle: "Rest Stop", enDesc: "Sit on the benches under the tall palms, it's the coolest spot." }
-        ]
+        lat: -34.43925, lng: -71.07678,
+        image: "referencias/pileta.jpeg",
+        es: { title: "Pileta y Araucarias", desc: "La pileta central representa místicamente a la desaparecida Laguna de Tagua Tagua. Antes era octagonal con fauna real y es custodiada por centenarias araucarias y palmeras plantadas por regidores.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/5.%20PILETA%20Y%20%C3%81RBOLES.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Fountain & Trees", desc: "The fountain represents the lost Tagua Tagua lagoon. It is guarded by monumental century-old palm trees.", audio: "audiotur%20en%20ingles%20MP3/5.%20FOUNTAIN%20AND%20TREES.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-leaf", esTitle: "Descanso", esDesc: "Bajo estas palmeras centenarias corre el mejor flujo de aire.", enTitle: "Rest Stop", enDesc: "Best breeze flows under these trees." }]
     },
     {
         id: 6,
-        lat: -34.43917,
-        lng: -71.07686,
-        es: { title: "Monolito", desc: "Monolito Conmemorativo", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/6.%20MONOLITO.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Monolith", desc: "Historical landmark", audio: "audiotur%20en%20ingles%20MP3/6.%20COMMEMORATIVE%20MONOLITH.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-book", esTitle: "Dato Histórico", esDesc: "Lee la placa frontal para entender el paso del tiempo en el lugar.", enTitle: "History Fact", enDesc: "Read the front plaque to understand the time progression here." }
-        ]
+        lat: -34.43917, lng: -71.07686,
+        image: "referencias/alcantarillado.jpg",
+        es: { title: "Vestigios Históricos", desc: "Monolito y símbolos que anclan la plaza en la línea de tiempo de la patria vieja.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/6.%20MONOLITO.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Historical Vestiges", desc: "Monolith symbolizing the deep patriotic timeline of the city.", audio: "audiotur%20en%20ingles%20MP3/6.%20COMMEMORATIVE%20MONOLITH.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-book", esTitle: "Lectura Digna", esDesc: "Toma el tiempo de leer la placa original.", enTitle: "Worthy Read", enDesc: "Take time to read the specific plaque wording." }]
     },
     {
         id: 7,
-        lat: -34.43893,
-        lng: -71.07690,
-        es: { title: "Leones", desc: "Guardianes de la Plaza", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/7.LOS%20LEONES.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Lions", desc: "Square Guardians", audio: "audiotur%20en%20ingles%20MP3/7.THE%20LIONS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-camera", esTitle: "Selfie Clásica", esDesc: "Uno de los puntos favoritos por turistas para una buena fotografía.", enTitle: "Classic Selfie", enDesc: "One of the favorite spots for tourists to take a picture." }
-        ]
+        lat: -34.43893, lng: -71.07690,
+        image: "referencias/leon.jpg",
+        es: { title: "Los Leones", desc: "Imponentes estatuas que vigilan flanqueando los accesos a la Plaza central.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/7.LOS%20LEONES.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "The Lions", desc: "Imposing statues guarding the entrances to the main central square.", audio: "audiotur%20en%20ingles%20MP3/7.THE%20LIONS.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-camera", esTitle: "Selfie Clásica", esDesc: "Es tradicional que los más pequeños escale el león para la foto.", enTitle: "Classic Selfie", enDesc: "Traditional photo spot climbing the lion figure." }]
     },
     {
         id: 8,
-        lat: -34.43892,
-        lng: -71.07700,
-        es: { title: "Iglesia", desc: "Parroquia San Juan Evangelista", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/8.%20IGLESIA.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Church", desc: "San Juan Evangelista Parish", audio: "audiotur%20en%20ingles%20MP3/8.%20CHURCH.%20AUDIO%20TOUR%20%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-hands-praying", esTitle: "Arquitectura", esDesc: "Observa los detalles de su fachada y el campanario al atardecer.", enTitle: "Architecture", enDesc: "Observe the details of its facade and the bell tower at dusk." }
-        ]
+        lat: -34.43892, lng: -71.07700,
+        image: "referencias/iglesia.jpeg",
+        es: { title: "Iglesia San Juan", desc: "La histórica Parroquia San Juan Evangelista, un epicentro para el devenir religioso, fundado junto a San Vicente.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/8.%20IGLESIA.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "San Juan Church", desc: "Parish of San Juan Evangelista, epicenter of religious developments since the foundation.", audio: "audiotur%20en%20ingles%20MP3/8.%20CHURCH.%20AUDIO%20TOUR%20%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-hands-praying", esTitle: "Hora Vesperal", esDesc: "Observa los vitrales luminosos en los horarios de atardecer.", enTitle: "Vesper Hour", enDesc: "Check out the luminous stained-glass windows at dusk." }]
     },
     {
         id: 9,
-        lat: -34.43891,
-        lng: -71.07676,
-        es: { title: "Mastodonte", desc: "Historia prehistórica", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/9.%20MASTODONTE.%20AUDIO%20TOUR%20PLAZA%20DE%20ARMAS%20DE%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Mastodon", desc: "Prehistoric history", audio: "audiotur%20en%20ingles%20MP3/9.%20MASTODON.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-bone", esTitle: "Milenario", esDesc: "San Vicente es famoso por sus hallazgos arqueológicos.", enTitle: "Ancient", enDesc: "San Vicente is famous for its archaeological findings." }
-        ]
+        lat: -34.43891, lng: -71.07676,
+        image: "referencias/mastodonte.jpg",
+        es: { title: "Mastodonte Paleontológico", desc: "Representación física de los grandes hallazgos óseos de gonfoterios de hace 12.000 años, extraídos de la Laguna Seca.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/9.%20MASTODONTE.%20AUDIO%20TOUR%20PLAZA%20DE%20ARMAS%20DE%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "Paleontological Mastodon", desc: "Physical representation of the giant gonphothere fossil findings dating back 12,000 years in the Dry Lagoon.", audio: "audiotur%20en%20ingles%20MP3/9.%20MASTODON.%20AUDIO%20TOUR%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-bone", esTitle: "Museo Cuchipuy", esDesc: "Considera sumar el Museo de Cuchipuy a tu itinerario general si te interesa esto.", enTitle: "Cuchipuy Museum", enDesc: "Add the Cuchipuy Museum if you enjoy paleontology." }]
     },
     {
         id: 10,
-        lat: -34.43873,
-        lng: -71.07668,
-        es: { title: "Monstruo", desc: "Mitos y Leyendas", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/10.%20MONSTRUO%20DE%20LA%20LAGUNA.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
-        en: { title: "Monster", desc: "Myths and Legends", audio: "audiotur%20en%20ingles%20MP3/10.%20MONSTER%20OF%20THE%20LAGOON.%20%20AUDIO%20TOUR%20%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
-        tips: [
-            { icon: "fa-water", esTitle: "La Laguna", esDesc: "Pregunta a los locales sobre la laguna desecada, hay mucha historia mística.", enTitle: "The Lagoon", enDesc: "Ask locals about the dried lagoon, there is mystical history there." }
-        ]
+        lat: -34.43873, lng: -71.07668,
+        image: "referencias/mounstruo.jpeg",
+        es: { title: "El Monstruo", desc: "Monstruo de la Laguna. Rememora el folclore local y deidades o bestias extrañas descritas por los cronistas que aterrorizaban la antigua era hídrica.", audio: "audiotour%20en%20espa%C3%B1ol%20MP3/10.%20MONSTRUO%20DE%20LA%20LAGUNA.%20AUDIO%20TOUR%20PLAZA%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA..mp3" },
+        en: { title: "The Monster", desc: "Lagoon Monster. It relates to local folklore of mythical water beasts recorded by early chroniclers.", audio: "audiotur%20en%20ingles%20MP3/10.%20MONSTER%20OF%20THE%20LAGOON.%20%20AUDIO%20TOUR%20%20SAN%20VICENTE%20DE%20TAGUA%20TAGUA%20SQUARE..mp3" },
+        tips: [{ icon: "fa-water", esTitle: "El Cuentacuentos", esDesc: "Pregunta a los ancianos del pueblo sobre este mito, tienen variaciones emocionantes.", enTitle: "Storytellers", enDesc: "Elders often have differing exciting tales about this beast." }]
     }
 ];
 
@@ -245,6 +223,15 @@ function updatePanelTexts() {
     if (!activePoint) return;
     document.getElementById('point-title').textContent = activePoint[currentLang].title;
     document.getElementById('point-desc').textContent = activePoint[currentLang].desc;
+    
+    const heroImgEl = document.getElementById('point-hero');
+    const heroContainer = document.getElementById('hero-container');
+    if (activePoint.image) {
+        heroImgEl.src = activePoint.image;
+        heroContainer.classList.remove('hidden-hero');
+    } else {
+        heroContainer.classList.add('hidden-hero');
+    }
     
     document.getElementById('label-directions').textContent = currentLang === 'es' ? 'Cómo llegar' : 'Directions';
     document.getElementById('label-info').textContent = currentLang === 'es' ? 'Cámara Turismo' : 'Tourist Board';
